@@ -4,6 +4,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Feed from "../../components/feed/Feed";
 import Rightbar from "../../components/rightbar/Rightbar";
 import Topbar from "../../components/topbar/Topbar";
+import ProfileTab from "../../components/profileTab/ProfileTab";
 
 export default function Profile() {
   return (
@@ -13,22 +14,7 @@ export default function Profile() {
         <Sidebar />
         <div className="profileRight">
           <div className="profileRightTop">
-            <div className="profileCover">
-              <img
-                src="assets/post/4.jpeg"
-                alt="cover"
-                className="profileCoverImg"
-              />
-              <img
-                src="assets/person/7.jpeg"
-                alt="person"
-                className="profileUserImg"
-              />
-            </div>
-            <div className="profileInfo">
-              <h4 className="profileInfoName">Alex Tepper</h4>
-              <span className="profileInfoDesc">Hello</span>
-            </div>
+            <ProfileTab />
           </div>
           <div className="profileRightBottom">
             <Feed />
