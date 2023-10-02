@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./topbar.css";
 import { Search, Person, Chat, Notifications } from "@mui/icons-material";
+import LogoutIcon from "@mui/icons-material/Logout";
 import { Badge } from "@mui/material";
 import { Link } from "react-router-dom";
+import { AuthContext, AuthContextProvider } from "../../context/AuthContext";
 
 export default function Topbar() {
+  const { user, logout } = useContext(AuthContext);
+
+  const logoutHandler = () => {
+    try {
+      localStorage.removeItem("user");
+      window.location.reload(false);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">
@@ -38,15 +50,18 @@ export default function Topbar() {
             <Badge badgeContent={4} color="secondary">
               <Notifications />
             </Badge>
-
-            <span className="topbarIconBadge">1</span>
+          </div>
+          <div className="topbarIconItem">
+            <LogoutIcon onClick={logoutHandler} />
           </div>
         </div>
-        <img
-          src="/assets/person/1.jpeg"
-          alt="Profilepic"
-          className="topbarImg"
-        />
+        <Link to={`/profile/${user.username}`}>
+          <img
+            src={user.profilePicture || "/assets/person/noAvatar.png"}
+            alt="Profilepic"
+            className="topbarImg"
+          />
+        </Link>
       </div>
     </div>
   );

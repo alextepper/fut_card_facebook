@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ProfileTab() {
+export default function ProfileTab({ user }) {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   return (
     <>
@@ -13,8 +13,8 @@ export default function ProfileTab() {
         />
       </div>
       <div className="profileInfo">
-        <h4 className="profileInfoName">Alex Tepper</h4>
-        <span className="profileInfoDesc">Hello</span>
+        <h4 className="profileInfoName">{user.username}</h4>
+        <span className="profileInfoDesc">{user.desc}</span>
       </div>
     </>
   );

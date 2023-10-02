@@ -9,7 +9,7 @@ import {
   Navigate as Redirect,
 } from "react-router-dom";
 import React, { useContext } from "react";
-import { AuthContext } from "./context/AuthContext";
+import { AuthContext, AuthContextProvider } from "./context/AuthContext";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -19,12 +19,19 @@ function App() {
         <Route
           exact
           path="/"
-          element={<Home />}
-          // element={user ? <Home /> : <Redirect to="/login" />}
+          element={user ? <Home /> : <Redirect to="/login" />}
         ></Route>
         <Route
           path="/login"
-          element={!user ? <Login /> : <Redirect to="/" />}
+          element={
+            !user ? (
+              <AuthContextProvider>
+                <Login />{" "}
+              </AuthContextProvider>
+            ) : (
+              <Redirect to="/" />
+            )
+          }
         ></Route>
         <Route
           path="/register"
