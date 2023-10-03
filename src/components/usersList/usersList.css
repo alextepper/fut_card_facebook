@@ -1,0 +1,29 @@
+.usersListContainer {
+    flex: 9;
+}
+
+.usersListWrapper {
+    padding: 20px;
+}
+
+.usersListItem {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 5px 10px;
+    border-radius: 10px;
+    box-shadow: 1px 0px 21px 0px rgba(0, 0, 0, 0.47);
+    -webkit-box-shadow: 1px 0px 21px 0px rgba(0, 0, 0, 0.47);
+    -moz-box-shadow: 1px 0px 21px 0px rgba(0, 0, 0, 0.47);
+    margin: 10px 0;
+}
+
+.userImage {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.userName {
+    margin-left: 10px;
+}

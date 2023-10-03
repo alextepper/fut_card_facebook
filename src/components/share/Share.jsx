@@ -7,7 +7,7 @@ import {
 } from "@mui/icons-material";
 import React from "react";
 import "./share.css";
-import { Button, IconButton } from "@mui/material";
+import { IconButton } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";

@@ -4,10 +4,10 @@ import { Search, Person, Chat, Notifications } from "@mui/icons-material";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Badge } from "@mui/material";
 import { Link } from "react-router-dom";
-import { AuthContext, AuthContextProvider } from "../../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function Topbar() {
-  const { user, logout } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   const logoutHandler = () => {
     try {

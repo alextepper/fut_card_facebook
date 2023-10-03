@@ -11,6 +11,11 @@
     flex: 10;
 }
 
+.profileRightTop {
+    display: flex;
+    justify-content: center;
+}
+
 .profileCover {
     height: 320px;
     position: relative;

@@ -1,20 +1,34 @@
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import "./login.css";
 import { loginCall } from "../../apiCalls";
 import { AuthContext } from "../../context/AuthContext";
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const email = useRef();
   const password = useRef();
   const { isFetching, dispatch } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-  const handleClick = (e) => {
+  const navigateRegistration = () => {
+    navigate("/register");
+  };
+
+  const navigateHome = () => {
+    navigate("/");
+  };
+
+  const handleClick = async (e) => {
     e.preventDefault();
-    loginCall(
-      { email: email.current.value, password: password.current.value },
-      dispatch
-    );
+    try {
+      await loginCall(
+        { email: email.current.value, password: password.current.value },
+        dispatch
+      );
+      window.location.reload(false);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -44,11 +58,14 @@ export default function Login() {
               ref={password}
             />
             <button className="loginButton" type="submit" disabled={isFetching}>
-              "Log In"
+              Log In
             </button>
             <span className="loginForgot">Forgot Password?</span>
-            <button className="loginRegisterButton">
-              "Create a New Account"
+            <button
+              className="loginRegisterButton"
+              onClick={navigateRegistration}
+            >
+              Create a New Account
             </button>
           </form>
         </div>

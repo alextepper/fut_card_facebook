@@ -11,6 +11,10 @@ export default function Register() {
   const passwordAgain = useRef();
   const navigate = useNavigate();
 
+  const navigateHome = () => {
+    navigate("/");
+  };
+
   const handleClick = async (e) => {
     e.preventDefault();
     if (passwordAgain.current.value !== password.current.value) {
@@ -37,7 +41,7 @@ export default function Register() {
     <div className="login">
       <div className="loginWrapper">
         <div className="loginLeft">
-          <h3 className="loginLogo">Lamasocial</h3>
+          <h3 className="loginLogo">FUT - Social Network</h3>
           <span className="loginDesc">
             Connect with friends and the world around you on Lamasocial.
           </span>
@@ -75,7 +79,9 @@ export default function Register() {
             <button className="loginButton" type="submit">
               Sign Up
             </button>
-            <button className="loginRegisterButton">Log into Account</button>
+            <button className="loginRegisterButton" onClick={navigateHome}>
+              Log into Account
+            </button>
           </form>
         </div>
       </div>

@@ -37,7 +37,10 @@ function App() {
           path="/register"
           element={!user ? <Register /> : <Redirect to="/" />}
         ></Route>
-        <Route path="/profile/:username" Component={Profile}></Route>
+        <Route
+          path="/profile/:username"
+          element={user ? <Profile /> : <Redirect to="/login" />}
+        ></Route>
       </Switch>
     </Router>
   );

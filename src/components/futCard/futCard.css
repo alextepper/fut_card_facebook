@@ -1,0 +1,39 @@
+.futCardTemplate {
+    width: 500px;
+    height: 700px;
+    position: relative;
+}
+
+.futCardProfilePic {
+    height: 45%;
+    width: 45%;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 40%;
+    right: 18%;
+    object-fit: cover;
+
+}
+
+.futCardUsername {
+    position: absolute;
+    bottom: 37%;
+    text-align: center;
+    width: 100%;
+    color: #fff;
+    font-size: 36px;
+}
+
+.futCardOrigin {
+    position: absolute;
+    left: 20%;
+    top: 30%;
+}
+
+.futCardAge {
+    position: absolute;
+    left: 22%;
+    top: 40%;
+    font-size: 36px;
+    color: #fff;
+}
