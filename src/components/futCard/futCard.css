@@ -9,7 +9,7 @@
     width: 45%;
     border-radius: 10px;
     position: absolute;
-    bottom: 40%;
+    bottom: 43%;
     right: 18%;
     object-fit: cover;
 
@@ -35,5 +35,37 @@
     left: 22%;
     top: 40%;
     font-size: 36px;
+    color: #fff;
+}
+
+.futCardMathStat,
+.futCardLanguageStat,
+.futCardArtStat {
+    position: absolute;
+    left: 27%;
+    font-size: 36px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    width: 43%;
+}
+
+.futCardMathStat {
+    bottom: 28%;
+}
+
+.futCardLanguageStat {
+    bottom: 22%;
+}
+
+.futCardArtStat {
+    bottom: 16%;
+}
+
+.futCardOverall {
+    position: absolute;
+    left: 19%;
+    top: 16%;
+    font-size: 72px;
     color: #fff;
 }
