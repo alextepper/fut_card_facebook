@@ -10,7 +10,7 @@ export default function UsersListItem({ user }) {
     >
       <li className="usersListItem">
         <img
-          src="assets/person/noAvatar.png"
+          src={user.profilePicture || "assets/person/noAvatar.png"}
           alt="profilePic"
           className="userImage"
         />

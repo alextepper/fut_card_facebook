@@ -10,7 +10,7 @@ export default function UsersList() {
     const fetchUsers = async () => {
       try {
         const res = await axios.get(
-          "https://fut-server.onrender.com/api/users/all"
+          process.env.REACT_APP_GENERAL_URI + "/api/users/all"
         );
 
         setUsers(res.data);

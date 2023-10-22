@@ -1,20 +1,22 @@
 import React, { useRef, useState } from "react";
 import "./futCard.css";
-import ReactCountryFlag from "react-country-flag";
 import axios from "axios";
+import FlagSelector from "../flagSelector/FlagSelector";
 
 export default function FutCard({ user }) {
   const [file, setFile] = useState(null);
   const fileInput = useRef(null);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
-  const uploadImage = async () => {
+  const uploadImage = async (user) => {
     const formData = new FormData();
     formData.append("userImage", fileInput.current.files[0]);
+    formData.append("username", user.username);
+    formData.append("userId", user._id);
 
     try {
       const response = await axios.post(
-        "http://yourserver.com/upload",
+        process.env.REACT_APP_GENERAL_URI + "/api/storage/upload",
         formData,
         {
           headers: {
@@ -54,21 +56,16 @@ export default function FutCard({ user }) {
               type="file"
               id="file"
               accept=".png,.jpeg,.jpg"
-              onChange={(e) => setFile(e.target.files[0])}
+              onChange={(e) => {
+                setFile(e.target.files[0]);
+                uploadImage(user);
+              }}
             />
           </label>
 
           <span className="futCardUsername">{user.username}</span>
           <span className="futCardOrigin">
-            <ReactCountryFlag
-              countryCode="US"
-              svg
-              style={{
-                width: "4em",
-                height: "4em",
-              }}
-              title="US"
-            />
+            <FlagSelector userFlag={user.from || "IL"} />
           </span>
           <span className="futCardOverall">89</span>
           <span className="futCardAge">31</span>
