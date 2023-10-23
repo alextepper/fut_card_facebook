@@ -3,7 +3,8 @@
 }
 
 .usersListWrapper {
-    padding: 20px;
+    padding-top: 20px;
+    padding-right: 40px;
 }
 
 .usersListItem {

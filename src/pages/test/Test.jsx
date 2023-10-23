@@ -1,14 +1,14 @@
 import React from "react";
 import Topbar from "../../components/topbar/Topbar";
-import "./home.css";
-import UsersList from "../../components/usersList/UsersList";
+import "./test.css";
+import TestQuestionPage from "../../components/testQuestionPage/TestQuestionPage";
 
-export default function Home() {
+export default function Test() {
   return (
     <>
       <Topbar />
       <div className="homeContainer">
-        <UsersList />
+        <TestQuestionPage />
       </div>
     </>
   );

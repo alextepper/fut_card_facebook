@@ -1,0 +1,76 @@
+/* QuizStyles.css */
+.testWrapper {
+    padding-top: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.question-container {
+
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+h1 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.startButton {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 3em;
+}
+
+.option-container {
+    display: block;
+    background-color: #f5f5f5;
+    border: 1px solid #e1e1e1;
+    padding: 10px 15px;
+    margin: 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.option-container:hover {
+    background-color: #ddd;
+    transform: scale(1.02);
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:disabled {
+    background-color: #bdc3c7;
+    color: #7f8c8d;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.finalMessage {
+    width: 100%;
+    text-align: center;
+    margin: 20px;
+}

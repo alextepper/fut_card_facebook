@@ -7,6 +7,8 @@
     position: sticky;
     top: 0;
     z-index: 999;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .topbarLeft {
@@ -49,7 +51,6 @@
 }
 
 .topbarRight {
-    flex: 4;
     display: flex;
     align-items: center;
     justify-content: space-between;

@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import "./topbar.css";
-import { Search, Person, Chat, Notifications } from "@mui/icons-material";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { Badge } from "@mui/material";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
@@ -24,37 +22,17 @@ export default function Topbar() {
           <span className="logo">FutBook</span>
         </Link>
       </div>
-      <div className="topbarCenter">
-        <div className="searchbar">
-          <Search className="searchIcon" />
-          <input placeholder="Search..." className="searchInput" />
-        </div>
-      </div>
+      <div className="topbarCenter"></div>
       <div className="topbarRight">
         <div className="topbarLinks">
-          <span className="topbarLink">Homepage</span>
-          <span className="topbarLink">Timeline</span>
+          <Link
+            to={"/test-question"}
+            style={{ textDecoration: "none", color: "white" }}
+          >
+            Test Yourself
+          </Link>
         </div>
-        <div className="topbarIcons">
-          <div className="topbarIconItem">
-            <Badge badgeContent={4} color="secondary">
-              <Person />
-            </Badge>
-          </div>
-          <div className="topbarIconItem">
-            <Badge badgeContent={4} color="secondary">
-              <Chat />
-            </Badge>
-          </div>
-          <div className="topbarIconItem">
-            <Badge badgeContent={4} color="secondary">
-              <Notifications />
-            </Badge>
-          </div>
-          <div className="topbarIconItem">
-            <LogoutIcon onClick={logoutHandler} />
-          </div>
-        </div>
+
         <Link to={`/profile/${user.username}`}>
           <img
             src={user.profilePicture || "/assets/person/noAvatar.png"}
@@ -62,6 +40,9 @@ export default function Topbar() {
             className="topbarImg"
           />
         </Link>
+        <div className="topbarIconItem">
+          <LogoutIcon onClick={logoutHandler} />
+        </div>
       </div>
     </div>
   );

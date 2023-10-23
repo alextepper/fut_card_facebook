@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useRef } from "react";
 import "./login.css";
 import { loginCall } from "../../apiCalls";
 import { AuthContext } from "../../context/AuthContext";
@@ -12,10 +12,6 @@ export default function Login() {
 
   const navigateRegistration = () => {
     navigate("/register");
-  };
-
-  const navigateHome = () => {
-    navigate("/");
   };
 
   const handleClick = async (e) => {
