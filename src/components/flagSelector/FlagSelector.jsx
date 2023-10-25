@@ -12,14 +12,14 @@ function FlagSelector({ userFlag }) {
   const user = JSON.parse(userString);
 
   const updateFlagInDb = async (flagCode) => {
-    if (!user._id) {
+    if (!user.id) {
       console.error("User ID not found in local storage.");
       return;
     }
 
     try {
       await axios.put(
-        `${process.env.REACT_APP_GENERAL_URI}/api/users/${user._id}`,
+        `${process.env.REACT_APP_GENERAL_URI}/api/users/${user.id}`,
         {
           userId: user._id,
           from: flagCode,
@@ -41,13 +41,14 @@ function FlagSelector({ userFlag }) {
   }, [userFlag]);
 
   return (
-    <div>
+    <>
       <ReactCountryFlag
         countryCode={selectedFlag}
         svg
         className="selectedFlag"
         title={selectedFlag}
         onClick={() => setMenuVisible(!menuVisible)}
+        style={{ width: "100%", height: "100%" }}
       />
 
       {menuVisible && (
@@ -69,7 +70,7 @@ function FlagSelector({ userFlag }) {
           ))}
         </div>
       )}
-    </div>
+    </>
   );
 }
 

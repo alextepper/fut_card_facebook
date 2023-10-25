@@ -1,6 +1,8 @@
 .futCardTemplate {
-    width: 500px;
-    height: 700px;
+    width: 90vw;
+    max-width: 500px;
+    height: 130vw;
+    max-height: 700px;
     position: relative;
 }
 
@@ -27,8 +29,10 @@
 .futCardOrigin {
     position: absolute;
     left: 20%;
-    top: 30%;
+    top: 30.5%;
     z-index: 100;
+    width: 64px;
+    height: 60px;
 }
 
 .futCardAge {
@@ -69,4 +73,34 @@
     top: 16%;
     font-size: 72px;
     color: #fff;
+}
+
+/* Media Queries for smaller screens */
+@media (max-width: 556px) {
+
+    .futCardOrigin {
+        width: 12vw;
+        height: 11vw;
+    }
+
+
+    .futCardUsername {
+        font-size: 7vw;
+    }
+
+
+    .futCardAge {
+        font-size: 7vw;
+    }
+
+    .futCardMathStat,
+    .futCardLanguageStat,
+    .futCardArtStat {
+        font-size: 7vw;
+    }
+
+
+    .futCardOverall {
+        font-size: 13vw;
+    }
 }

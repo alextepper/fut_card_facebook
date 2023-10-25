@@ -14,11 +14,12 @@ const QuizPage = () => {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    if (fadeOut) {
-      // Reset the fade-out after the transition completes
+    if (fadeOut && currentIndex < 4) {
       setTimeout(() => setFadeOut(false), 500);
+    } else if (userAnswers.length === 0) {
+      setFadeOut(false);
     }
-  }, [fadeOut]);
+  }, [fadeOut, userAnswers]);
 
   const handleTransition = async () => {
     setFadeOut(true);

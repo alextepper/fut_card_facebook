@@ -36,7 +36,7 @@ export default function FutCard({ user }) {
         <div
           className="futCardTemplate"
           style={{
-            backgroundImage: `url(${PF}/cards/4.png)`,
+            backgroundImage: `url(${PF}/cards/8.png)`,
             backgroundSize: "cover",
           }}
         >
@@ -71,15 +71,15 @@ export default function FutCard({ user }) {
           <span className="futCardAge">31</span>
           <div className="futCardMathStat">
             <span>MAT</span>
-            <span>86</span>
+            <span>{user.matMark || 0}</span>
           </div>
           <div className="futCardLanguageStat">
             <span>LAN</span>
-            <span>86</span>
+            <span>{user.lanMark || 0}</span>
           </div>
           <div className="futCardArtStat">
             <span>ART</span>
-            <span>86</span>
+            <span>{user.artMark || 0}</span>
           </div>
         </div>
       </div>

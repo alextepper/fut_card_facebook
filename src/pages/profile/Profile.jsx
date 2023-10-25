@@ -29,9 +29,9 @@ export default function Profile() {
             <FutCard user={user} />
           </div>
 
-          <div className="profileRightBottom">
+          {/* <div className="profileRightBottom">
             <Feed username={username} />
-          </div>
+          </div> */}
         </div>
       </div>
     </>

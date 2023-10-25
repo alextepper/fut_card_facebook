@@ -17,6 +17,26 @@
     -webkit-box-shadow: 1px 0px 21px 0px rgba(0, 0, 0, 0.47);
     -moz-box-shadow: 1px 0px 21px 0px rgba(0, 0, 0, 0.47);
     margin: 10px 0;
+    transition: background-color 0.3s ease;
+    /* Animation for smooth color transition */
+
+}
+
+.usersListItem:hover {
+    background-color: #cfcfcf;
+    /* Change this to your desired hover color */
+}
+
+.highlighted {
+    background-color: #9891c7;
+    /* Highlight color, change as needed */
+}
+
+
+.userRank {
+    font-weight: bold;
+    margin-right: 10px;
+    /* Add spacing between rank and profile picture */
 }
 
 .userImage {
@@ -26,6 +46,16 @@
     object-fit: cover;
 }
 
-.userName {
-    margin-left: 10px;
+
+
+.itemRight {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10px;
+}
+
+.userGeneralMark {
+    font-size: 1.2em;
+    color: #000000;
 }
