@@ -5,6 +5,8 @@
 .usersListWrapper {
     padding-top: 20px;
     padding-right: 40px;
+    max-width: 700px;
+    margin: auto;
 }
 
 .usersListItem {

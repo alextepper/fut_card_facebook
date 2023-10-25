@@ -20,17 +20,6 @@
     justify-content: center;
 }
 
-.loginLogo {
-    font-size: 50px;
-    font-weight: 800;
-    color: #1775ee;
-    margin-bottom: 10px;
-}
-
-.loginDesc {
-    font-size: 24px;
-}
-
 .loginBox {
     height: 400px;
     padding: 20px;
@@ -46,22 +35,7 @@
     align-items: center;
 }
 
-.loginInput {
-    height: 50px;
-    border-radius: 10px;
-    border: 1px solid gray;
-    font-size: 18px;
-    padding-left: 20px;
-    width: 70%;
-}
 
 .loginInput:focus {
     outline: none;
-}
-
-.loginButton {
-    width: 70%;
-    max-width: 200px;
-    height: 50px;
-    align-self: center;
 }

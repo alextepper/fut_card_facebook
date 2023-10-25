@@ -42,7 +42,10 @@ function App() {
           path="/profile/:username"
           element={user ? <Profile /> : <Redirect to="/login" />}
         ></Route>
-        <Route path="/test-question" element={<Test />} />
+        <Route
+          path="/test-question"
+          element={user ? <Test /> : <Redirect to="/login" />}
+        />
       </Switch>
     </Router>
   );

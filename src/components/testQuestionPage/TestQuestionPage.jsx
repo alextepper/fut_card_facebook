@@ -30,13 +30,13 @@ const QuizPage = () => {
     }, 500);
   };
 
-  const startQuiz = async () => {
+  const startQuiz = async (subject) => {
     try {
       const user = localStorage.getItem("user");
       const userId = JSON.parse(user).id;
       const response = await axios.get(
         process.env.REACT_APP_GENERAL_URI + "/api/questions",
-        { headers: { "user-id": userId, subject: "math" } }
+        { headers: { "user-id": userId, subject: subject } }
       );
       setQuizId(response.data.quizTryId);
       setQuestions(response.data.questions);
@@ -47,9 +47,17 @@ const QuizPage = () => {
 
   if (!questions.length) {
     return (
-      <div className="startButton">
-        <button onClick={startQuiz}>Start Quiz</button>
-      </div>
+      <>
+        <div className="startButton">
+          <button onClick={() => startQuiz("math")}>Start Math Quiz</button>
+        </div>
+        <div className="startButton">
+          <button onClick={() => startQuiz("lang")}>Start Language Quiz</button>
+        </div>
+        <div className="startButton">
+          <button onClick={() => startQuiz("arts")}>Start Art Quiz</button>
+        </div>
+      </>
     );
   }
 

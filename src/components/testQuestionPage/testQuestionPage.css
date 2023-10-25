@@ -45,7 +45,7 @@ input[type="radio"] {
     margin-right: 10px;
 }
 
-button {
+.startButton {
     margin-top: 20px;
     padding: 10px 20px;
     background-color: #007bff;
@@ -56,11 +56,11 @@ button {
     transition: background-color 0.3s;
 }
 
-button:hover {
+.startButton:hover {
     background-color: #0056b3;
 }
 
-button:disabled {
+.startButton:disabled {
     background-color: #bdc3c7;
     color: #7f8c8d;
 }

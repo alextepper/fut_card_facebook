@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
 import FutCard from "../../components/futCard/FutCard";
+import Footer from "../../components/footer/Footer";
 
 export default function Profile() {
   const [user, setUser] = useState({});
@@ -21,19 +22,12 @@ export default function Profile() {
   }, [username]);
 
   return (
-    <>
+    <div className="profileBody">
       <Topbar />
       <div className="profile">
-        <div className="profileRight">
-          <div className="profileRightTop">
-            <FutCard user={user} />
-          </div>
-
-          {/* <div className="profileRightBottom">
-            <Feed username={username} />
-          </div> */}
-        </div>
+        <FutCard user={user} />
       </div>
-    </>
+      <Footer />
+    </div>
   );
 }

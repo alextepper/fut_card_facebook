@@ -1,28 +1,38 @@
 .topbarContainer {
     height: 50px;
     width: 100%;
-    background-color: rgb(25, 61, 100);
     display: flex;
     align-items: center;
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 999;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
 
+.whiteTopbar {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.gradientTopbar {
+    background: linear-gradient(163deg, rgb(54, 140, 143) 0%, rgb(69, 142, 197) 29%, rgb(75, 91, 162) 70%, rgb(13, 148, 130) 98%);
+
+}
+
 .topbarLeft {
     flex: 3;
+}
+
+.whiteLogo {
+    font-size: 24px;
+    margin-left: 20px;
+    color: rgba(79, 146, 196, 1);
 }
 
 .logo {
     font-size: 24px;
     margin-left: 20px;
-    color: aliceblue;
-}
-
-.topbarCenter {
-    flex: 5;
+    color: rgb(255, 255, 255);
 }
 
 .searchbar {
@@ -83,6 +93,11 @@
     justify-content: center;
 }
 
+.topbarLinks {
+    display: flex;
+    margin: 15px;
+}
+
 .topbarLink {
     margin-right: 10px;
     font-size: 14px;
@@ -95,4 +110,6 @@
     border-radius: 50%;
     object-fit: cover;
     cursor: pointer;
+    background-color: white;
+    margin: 15px;
 }

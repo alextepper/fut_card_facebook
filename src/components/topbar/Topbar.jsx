@@ -15,35 +15,77 @@ export default function Topbar() {
       console.log(err);
     }
   };
-  return (
-    <div className="topbarContainer">
-      <div className="topbarLeft">
-        <Link to={"/"} style={{ textDecoration: "none" }}>
-          <span className="logo">FutBook</span>
-        </Link>
-      </div>
-      <div className="topbarCenter"></div>
-      <div className="topbarRight">
-        <div className="topbarLinks">
-          <Link
-            to={"/test-question"}
-            style={{ textDecoration: "none", color: "white" }}
-          >
-            Test Yourself
+
+  if (user) {
+    return (
+      <div className="topbarContainer gradientTopbar">
+        <div className="topbarLeft">
+          <Link to={"/"} style={{ textDecoration: "none", color: "white" }}>
+            <span className="logo">FutBook</span>
           </Link>
         </div>
+        <div className="topbarRight">
+          <div className="topbarLinks">
+            <Link
+              to={"/test-question"}
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              Test Yourself
+            </Link>
+          </div>
 
-        <Link to={`/profile/${user.username}`}>
-          <img
-            src={user.profilePicture || "/assets/person/noAvatar.png"}
-            alt="Profilepic"
-            className="topbarImg"
-          />
-        </Link>
-        <div className="topbarIconItem">
-          <LogoutIcon onClick={logoutHandler} />
+          <Link to={`/profile/${user.username}`}>
+            <img
+              src={user.profilePicture || "/assets/person/noAvatar.png"}
+              alt="Profilepic"
+              className="topbarImg"
+            />
+          </Link>
+          <div className="topbarIconItem">
+            <LogoutIcon onClick={logoutHandler} />
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className="topbarContainer whiteTopbar">
+        <div className="topbarLeft">
+          <Link
+            to={"/"}
+            style={{ textDecoration: "none", color: "rgba(79, 146, 196, 1)" }}
+          >
+            <span className="whiteLogo">FutBook</span>
+          </Link>
+        </div>
+        <div className="topbarCenter"></div>
+        <div className="topbarRight">
+          <div className="topbarLinks">
+            <div className="topbarLink">
+              <Link
+                to={"/login"}
+                style={{
+                  textDecoration: "none",
+                  color: "rgba(79, 146, 196, 1)",
+                }}
+              >
+                Login
+              </Link>
+            </div>
+            <div className="topbarLink">
+              <Link
+                to={"/register"}
+                style={{
+                  textDecoration: "none",
+                  color: "rgba(79, 146, 196, 1)",
+                }}
+              >
+                Sign Up
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }

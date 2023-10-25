@@ -2,6 +2,8 @@ import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./register.css";
+import Topbar from "../../components/topbar/Topbar";
+import Footer from "../../components/footer/Footer";
 
 export default function Register() {
   const username = useRef();
@@ -26,10 +28,10 @@ export default function Register() {
       };
       try {
         await axios.post(
-          "https://fut-server.onrender.com/api/auth/register",
+          process.env.REACT_APP_GENERAL_URI + "/api/auth/register",
           user
         );
-        navigate.push("/login");
+        navigateHome();
       } catch (err) {
         console.log(err);
       }
@@ -37,53 +39,48 @@ export default function Register() {
   };
 
   return (
-    <div className="login">
-      <div className="loginWrapper">
-        <div className="loginLeft">
-          <h3 className="loginLogo">FUT - Social Network</h3>
-          <span className="loginDesc">
-            Connect with friends and the world around you on Lamasocial.
-          </span>
-        </div>
-        <div className="loginRight">
-          <form className="loginBox" onSubmit={handleClick}>
-            <input
-              placeholder="Username"
-              required
-              ref={username}
-              className="loginInput"
-            />
-            <input
-              placeholder="Email"
-              required
-              ref={email}
-              className="loginInput"
-              type="email"
-            />
-            <input
-              placeholder="Password"
-              required
-              ref={password}
-              className="loginInput"
-              type="password"
-              minLength="6"
-            />
-            <input
-              placeholder="Password Again"
-              required
-              ref={passwordAgain}
-              className="loginInput"
-              type="password"
-            />
-            <button className="loginButton" type="submit">
-              Sign Up
-            </button>
-            <button className="loginRegisterButton" onClick={navigateHome}>
-              Log into Account
-            </button>
-          </form>
-        </div>
+    <div className="loginBody">
+      <Topbar />
+      <div className="loginContainer">
+        <form className="loginCard" onSubmit={handleClick}>
+          <h2>Sign up</h2>
+          <input
+            placeholder="Username"
+            required
+            ref={username}
+            className="loginInput"
+          />
+          <input
+            placeholder="Email"
+            required
+            ref={email}
+            className="loginInput"
+            type="email"
+          />
+          <input
+            placeholder="Password"
+            required
+            ref={password}
+            className="loginInput"
+            type="password"
+            minLength="6"
+          />
+          <input
+            placeholder="Password Again"
+            required
+            ref={passwordAgain}
+            className="loginInput"
+            type="password"
+          />
+          <button className="loginButton" type="submit">
+            Sign Up
+          </button>
+          <button className="signupButton" onClick={navigateHome}>
+            Log into Account
+          </button>
+        </form>
       </div>
+      <Footer />
     </div>
   );
 }

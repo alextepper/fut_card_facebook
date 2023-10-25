@@ -3,6 +3,8 @@ import "./login.css";
 import { loginCall } from "../../apiCalls";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import Topbar from "../../components/topbar/Topbar";
+import Footer from "../../components/footer/Footer";
 
 export default function Login() {
   const email = useRef();
@@ -28,16 +30,13 @@ export default function Login() {
   };
 
   return (
-    <div className="login">
-      <div className="loginWrapper">
-        <div className="loginLeft">
-          <h3 className="loginLogo">FUT - Social Network</h3>
-          <span className="loginDesc">
-            Connect with friends and the world around you on Lamasocial.
-          </span>
-        </div>
-        <div className="loginRight">
-          <form className="loginBox" onSubmit={handleClick}>
+    <div className="loginBody">
+      <>
+        <Topbar />
+        <div className="loginContainer">
+          <form className="loginCard" onSubmit={handleClick}>
+            <h2>Login</h2>
+
             <input
               placeholder="Email"
               type="email"
@@ -53,19 +52,20 @@ export default function Login() {
               className="loginInput"
               ref={password}
             />
+            <a href="#" className="forgotPasswordLink">
+              Forgot password?
+            </a>
             <button className="loginButton" type="submit" disabled={isFetching}>
-              Log In
+              LOGIN
             </button>
-            <span className="loginForgot">Forgot Password?</span>
-            <button
-              className="loginRegisterButton"
-              onClick={navigateRegistration}
-            >
-              Create a New Account
+
+            <button className="signupButton" onClick={navigateRegistration}>
+              SIGN UP
             </button>
           </form>
         </div>
-      </div>
+        <Footer />
+      </>
     </div>
   );
 }

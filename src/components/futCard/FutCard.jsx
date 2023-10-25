@@ -31,56 +31,54 @@ export default function FutCard({ user }) {
   };
 
   return (
-    <div className="futCardContainer">
-      <div className="futCardWrapper">
-        <div
-          className="futCardTemplate"
-          style={{
-            backgroundImage: `url(${PF}/cards/8.png)`,
-            backgroundSize: "cover",
-          }}
-        >
-          <label htmlFor="file">
-            <img
-              src={
-                (file && URL.createObjectURL(file)) ||
-                user.profilePicture ||
-                PF + "/person/noAvatar.png"
-              }
-              alt="profilePic"
-              className="futCardProfilePic"
-            />
-            <input
-              ref={fileInput}
-              style={{ display: "none" }}
-              type="file"
-              id="file"
-              accept=".png,.jpeg,.jpg"
-              onChange={(e) => {
-                setFile(e.target.files[0]);
-                uploadImage(user);
-              }}
-            />
-          </label>
+    <div className="futCardWrapper">
+      <div
+        className="futCardTemplate"
+        style={{
+          backgroundImage: `url(${PF}/cards/8.png)`,
+          backgroundSize: "cover",
+        }}
+      >
+        <label htmlFor="file">
+          <img
+            src={
+              (file && URL.createObjectURL(file)) ||
+              user.profilePicture ||
+              PF + "/person/noAvatar.png"
+            }
+            alt="profilePic"
+            className="futCardProfilePic"
+          />
+          <input
+            ref={fileInput}
+            style={{ display: "none" }}
+            type="file"
+            id="file"
+            accept=".png,.jpeg,.jpg"
+            onChange={(e) => {
+              setFile(e.target.files[0]);
+              uploadImage(user);
+            }}
+          />
+        </label>
 
-          <span className="futCardUsername">{user.username}</span>
-          <span className="futCardOrigin">
-            <FlagSelector userFlag={user.from || "IL"} />
-          </span>
-          <span className="futCardOverall">89</span>
-          <span className="futCardAge">31</span>
-          <div className="futCardMathStat">
-            <span>MAT</span>
-            <span>{user.matMark || 0}</span>
-          </div>
-          <div className="futCardLanguageStat">
-            <span>LAN</span>
-            <span>{user.lanMark || 0}</span>
-          </div>
-          <div className="futCardArtStat">
-            <span>ART</span>
-            <span>{user.artMark || 0}</span>
-          </div>
+        <span className="futCardUsername">{user.username}</span>
+        <span className="futCardOrigin">
+          <FlagSelector userFlag={user.from || "IL"} />
+        </span>
+        <span className="futCardOverall">{user.generalMark || 0}</span>
+        <span className="futCardAge">31</span>
+        <div className="futCardMathStat">
+          <span>MAT</span>
+          <span>{user.matMark || 0}</span>
+        </div>
+        <div className="futCardLanguageStat">
+          <span>LAN</span>
+          <span>{user.lanMark || 0}</span>
+        </div>
+        <div className="futCardArtStat">
+          <span>ART</span>
+          <span>{user.artMark || 0}</span>
         </div>
       </div>
     </div>
