@@ -6,6 +6,25 @@ import FlagSelector from "../flagSelector/FlagSelector";
 export default function FutCard({ user }) {
   const [file, setFile] = useState(null);
   const fileInput = useRef(null);
+
+  const getShieldLevel = (generalScore) => {
+    if (generalScore > 90) {
+      return "black";
+    } else if (generalScore > 80) {
+      return "golden";
+    } else if (generalScore > 70) {
+      return "silver";
+    } else if (generalScore > 50) {
+      return "red";
+    } else if (generalScore > 30) {
+      return "yellow";
+    } else if (generalScore < 30) {
+      return "green";
+    }
+  };
+
+  const shieldLevel = getShieldLevel(user.generalMark);
+
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
   const uploadImage = async (user) => {
@@ -35,7 +54,7 @@ export default function FutCard({ user }) {
       <div
         className="futCardTemplate"
         style={{
-          backgroundImage: `url(${PF}/cards/8.png)`,
+          backgroundImage: `url(${PF}/cards/${shieldLevel}.png)`,
           backgroundSize: "cover",
         }}
       >

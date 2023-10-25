@@ -19,18 +19,20 @@
     -webkit-box-shadow: 1px 0px 21px 0px rgba(0, 0, 0, 0.47);
     -moz-box-shadow: 1px 0px 21px 0px rgba(0, 0, 0, 0.47);
     margin: 10px 0;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s;
     /* Animation for smooth color transition */
 
 }
 
 .usersListItem:hover {
     background-color: #cfcfcf;
+    transform: scale(1.02);
     /* Change this to your desired hover color */
 }
 
 .highlighted {
-    background-color: #9891c7;
+    background-color: #5ca1e1;
+    color: white;
     /* Highlight color, change as needed */
 }
 
@@ -57,7 +59,11 @@
     margin: 0 10px;
 }
 
+.listFlag {
+    margin-left: 2px;
+    border-radius: 50%;
+}
+
 .userGeneralMark {
     font-size: 1.2em;
-    color: #000000;
 }

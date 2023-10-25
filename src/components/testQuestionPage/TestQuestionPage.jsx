@@ -47,17 +47,24 @@ const QuizPage = () => {
 
   if (!questions.length) {
     return (
-      <>
-        <div className="startButton">
-          <button onClick={() => startQuiz("math")}>Start Math Quiz</button>
+      <div className="testWrapper">
+        <div>
+          <button className="testButton" onClick={() => startQuiz("math")}>
+            Start Math Quiz
+          </button>
         </div>
-        <div className="startButton">
-          <button onClick={() => startQuiz("lang")}>Start Language Quiz</button>
+        <div>
+          <button className="testButton" onClick={() => startQuiz("lang")}>
+            Start Language Quiz
+          </button>
         </div>
-        <div className="startButton">
-          <button onClick={() => startQuiz("arts")}>Start Art Quiz</button>
+
+        <div>
+          <button className="testButton" onClick={() => startQuiz("arts")}>
+            Start Art Quiz
+          </button>
         </div>
-      </>
+      </div>
     );
   }
 
@@ -121,7 +128,9 @@ const QuizPage = () => {
         <h1>{questions[currentIndex]?.questionText}</h1>
         {questions[currentIndex]?.options.map((option, index) => (
           <div
-            className="option-container"
+            className={`option-container ${
+              selectedOption === option ? "selected" : ""
+            }`}
             key={index}
             onClick={() => setSelectedOption(option)}
           >
@@ -134,7 +143,11 @@ const QuizPage = () => {
             {option}
           </div>
         ))}
-        <button onClick={handleTransition} disabled={!selectedOption}>
+        <button
+          className="testButton"
+          onClick={handleTransition}
+          disabled={!selectedOption}
+        >
           {currentIndex === questions.length - 1 ? "Submit" : "Next"}
         </button>
       </div>

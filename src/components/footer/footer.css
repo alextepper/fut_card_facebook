@@ -37,9 +37,10 @@
 .socialLinks a {
     color: #fff;
     font-size: 20px;
-    transition: color 0.3s;
+    transition: all 0.3s;
 }
 
 .socialLinks a:hover {
-    color: #58e0ff;
+    color: #d21ed8;
+    margin: 0 10px;
 }

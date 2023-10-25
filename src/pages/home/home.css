@@ -1,4 +1,8 @@
+.homeBody {
+    margin-top: 50px;
+}
+
 .homeContainer {
     display: flex;
-    padding-bottom: 50px;
+    padding-bottom: 70px;
 }

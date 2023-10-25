@@ -1,6 +1,7 @@
 import React from "react";
 import "./usersList.css";
 import { Link } from "react-router-dom";
+import ReactCountryFlag from "react-country-flag";
 
 export default function UsersListItem({ user }) {
   const curentsUser = localStorage.getItem("user");
@@ -21,7 +22,16 @@ export default function UsersListItem({ user }) {
           className="userImage"
         />
         <div className="itemRight">
-          <div className="userName">{user.username}</div>
+          <div className="userName">
+            {user.username}
+            <ReactCountryFlag
+              countryCode={user.from}
+              svg
+              className="listFlag"
+              title={user.from}
+            />
+          </div>
+
           <div className="userGeneralMark">{user.generalMark || 0}</div>
         </div>
       </li>

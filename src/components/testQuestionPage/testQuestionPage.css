@@ -2,6 +2,7 @@
 .testWrapper {
     padding-top: 20px;
     max-width: 600px;
+    width: 100vw;
     margin: 0 auto;
     text-align: center;
     font-family: Arial, sans-serif;
@@ -21,8 +22,6 @@ h1 {
 
 .startButton {
     width: 100%;
-    display: flex;
-    justify-content: center;
     margin: 3em;
 }
 
@@ -33,36 +32,28 @@ h1 {
     padding: 10px 15px;
     margin: 5px 0;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background-color 0.3s, transform 0.3s, color 0.5s;
 }
 
 .option-container:hover {
     background-color: #ddd;
-    transform: scale(1.02);
+    transform: scale(1.1);
 }
+
+.option-container input[type="radio"] {
+    display: none;
+}
+
+.option-container.selected {
+    background-color: #5ca1e1;
+    color: white;
+    border: 1px solid #b0b0b0;
+    transform: scale(1.1);
+}
+
 
 input[type="radio"] {
     margin-right: 10px;
-}
-
-.startButton {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.startButton:hover {
-    background-color: #0056b3;
-}
-
-.startButton:disabled {
-    background-color: #bdc3c7;
-    color: #7f8c8d;
 }
 
 .fade-out {
@@ -73,4 +64,50 @@ input[type="radio"] {
     width: 100%;
     text-align: center;
     margin: 20px;
+}
+
+.finalMessage h2 {
+    color: #5ca1e1;
+}
+
+.testButton {
+    border-radius: 4px;
+    background-color: #5ca1e1;
+    border: none;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    padding: 16px;
+    width: 100vw;
+    max-width: 220px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 24px 0;
+    box-shadow: 0 10px 20px -8px rgba(0, 0, 0, .7);
+}
+
+.testButton {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.testButton:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: 14px;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.testButton:hover {
+    padding-right: 24px;
+    padding-left: 8px;
+}
+
+.testButton:hover:after {
+    opacity: 1;
+    right: 10px;
 }

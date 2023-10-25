@@ -3,6 +3,10 @@
     font-family: "Roboto", sans-serif;
 }
 
+.profileBody {
+    margin-top: 50px;
+}
+
 .profile {
     display: flex;
     margin-bottom: 55px;
