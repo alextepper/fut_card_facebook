@@ -1,6 +1,5 @@
 import "./profile.css";
 import Topbar from "../../components/topbar/Topbar";
-import Feed from "../../components/feed/Feed";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";

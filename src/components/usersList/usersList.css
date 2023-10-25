@@ -39,6 +39,7 @@
 
 .userRank {
     font-weight: bold;
+    font-size: 20px;
     margin-right: 10px;
     /* Add spacing between rank and profile picture */
 }

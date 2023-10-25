@@ -15,6 +15,9 @@ export default function Login() {
   const navigateRegistration = () => {
     navigate("/register");
   };
+  const navigateHome = () => {
+    navigate("/");
+  };
 
   const handleClick = async (e) => {
     e.preventDefault();
@@ -23,7 +26,7 @@ export default function Login() {
         { email: email.current.value, password: password.current.value },
         dispatch
       );
-      window.location.reload(false);
+      navigateHome();
     } catch (err) {
       console.log(err);
     }

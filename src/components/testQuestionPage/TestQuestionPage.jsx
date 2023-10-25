@@ -19,7 +19,7 @@ const QuizPage = () => {
     } else if (userAnswers.length === 0) {
       setFadeOut(false);
     }
-  }, [fadeOut, userAnswers]);
+  }, [fadeOut, userAnswers, currentIndex]);
 
   const handleTransition = async () => {
     setFadeOut(true);

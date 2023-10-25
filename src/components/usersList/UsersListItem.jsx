@@ -3,7 +3,7 @@ import "./usersList.css";
 import { Link } from "react-router-dom";
 import ReactCountryFlag from "react-country-flag";
 
-export default function UsersListItem({ user }) {
+export default function UsersListItem({ user, index }) {
   const curentsUser = localStorage.getItem("user");
   const userId = JSON.parse(curentsUser).id;
 
@@ -15,7 +15,7 @@ export default function UsersListItem({ user }) {
       <li
         className={`usersListItem ${user._id === userId ? "highlighted" : ""}`}
       >
-        <div className="userRank">{user.rank}</div>
+        <div className="userRank">{index + 1}</div>
         <img
           src={user.profilePicture || "assets/person/noAvatar.png"}
           alt="profilePic"
