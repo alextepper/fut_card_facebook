@@ -4,9 +4,12 @@
 
 .usersListWrapper {
     padding-top: 20px;
-    padding-right: 40px;
     max-width: 700px;
     margin: auto;
+}
+
+.usersList {
+    padding: 5px;
 }
 
 .usersListItem {
@@ -30,9 +33,24 @@
     /* Change this to your desired hover color */
 }
 
-.highlighted {
-    background-color: #5ca1e1;
+.gold {
+    background: linear-gradient(to right bottom, rgb(120, 53, 15), rgb(253, 224, 71));
     color: white;
+}
+
+.silver {
+
+    background: linear-gradient(to left, rgb(156, 163, 175), rgb(107, 114, 128), rgb(75, 85, 99));
+    color: white;
+}
+
+.bronze {
+    background: linear-gradient(to right, rgb(194, 65, 12), rgb(251, 146, 60), rgb(234, 88, 12));
+    color: white;
+}
+
+.highlighted {
+    border: 3px solid #5ca1e1;
     /* Highlight color, change as needed */
 }
 

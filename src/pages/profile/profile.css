@@ -7,7 +7,16 @@
     margin-top: 50px;
 }
 
+.profileWrapper {
+    padding-bottom: 60px;
+}
+
+.profileSidebar {
+    flex: 5;
+}
+
 .profile {
+    flex: 9;
     display: flex;
     margin-bottom: 55px;
     justify-content: center;

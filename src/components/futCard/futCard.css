@@ -4,7 +4,7 @@
     height: 130vw;
     max-height: 700px;
     position: relative;
-    transition: all 0.5s;
+    transition: background 0.5s;
 }
 
 .futCardProfilePic {
@@ -15,6 +15,9 @@
     bottom: 43%;
     right: 18%;
     object-fit: cover;
+}
+
+.cursor {
     cursor: pointer;
 }
 

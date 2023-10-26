@@ -14,6 +14,7 @@ import Test from "./pages/test/Test";
 
 function App() {
   const { user } = useContext(AuthContext);
+  console.log(user);
   return (
     <Router>
       <Switch>

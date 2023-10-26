@@ -23,7 +23,9 @@ export default function Login() {
         { email: email.current.value, password: password.current.value },
         dispatch
       );
-      window.location.reload(false);
+      setTimeout(() => {
+        window.location.reload(false);
+      }, 1000);
     } catch (err) {
       console.log(err);
     }

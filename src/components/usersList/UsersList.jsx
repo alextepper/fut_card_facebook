@@ -13,7 +13,11 @@ export default function UsersList() {
           process.env.REACT_APP_GENERAL_URI + "/api/users/all"
         );
 
-        setUsers(res.data);
+        const sortedUsers = res.data.sort(
+          (a, b) => b.generalMark - a.generalMark
+        );
+
+        setUsers(sortedUsers);
       } catch (error) {
         console.error("Error fetching users", error);
       }

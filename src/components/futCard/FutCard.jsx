@@ -2,10 +2,14 @@ import React, { useRef, useState } from "react";
 import "./futCard.css";
 import axios from "axios";
 import FlagSelector from "../flagSelector/FlagSelector";
+import ReactCountryFlag from "react-country-flag";
 
 export default function FutCard({ user }) {
   const [file, setFile] = useState(null);
   const fileInput = useRef(null);
+  const currentUser = localStorage.getItem("user");
+  const currentUserId = JSON.parse(currentUser).id;
+  const isUserAuthed = user._id === currentUserId;
 
   const getShieldLevel = (generalScore) => {
     if (generalScore > 90) {
@@ -49,12 +53,21 @@ export default function FutCard({ user }) {
     }
   };
 
+  const handleFileChange = (e) => {
+    console.log(user);
+    console.log(currentUser);
+    if (isUserAuthed) {
+      setFile(e.target.files[0]);
+      uploadImage(user);
+    }
+  };
+
   return (
     <div className="futCardWrapper">
       <div
         className="futCardTemplate"
         style={{
-          backgroundImage: `url(${PF}/assets/cards/${shieldLevel}.png)`,
+          backgroundImage: `url(/assets/cards/${shieldLevel}.png)`,
           backgroundSize: "cover",
         }}
       >
@@ -63,41 +76,49 @@ export default function FutCard({ user }) {
             src={
               (file && URL.createObjectURL(file)) ||
               user.profilePicture ||
-              PF + "/person/noAvatar.png"
+              PF + "/assets/person/noAvatar.png"
             }
             alt="profilePic"
-            className="futCardProfilePic"
+            className={`futCardProfilePic ${isUserAuthed && "cursor"}`}
           />
-          <input
-            ref={fileInput}
-            style={{ display: "none" }}
-            type="file"
-            id="file"
-            accept=".png,.jpeg,.jpg"
-            onChange={(e) => {
-              setFile(e.target.files[0]);
-              uploadImage(user);
-            }}
-          />
+          {isUserAuthed && (
+            <input
+              ref={fileInput}
+              style={{ display: "none" }}
+              type="file"
+              id="file"
+              accept=".png,.jpeg,.jpg"
+              onChange={handleFileChange}
+            />
+          )}
         </label>
 
         <span className="futCardUsername">{user.username}</span>
         <span className="futCardOrigin">
-          <FlagSelector userFlag={user.from || "IL"} />
+          {isUserAuthed ? (
+            <FlagSelector userFlag={user.from || "IL"} />
+          ) : (
+            <ReactCountryFlag
+              countryCode={user.from || "IL"}
+              svg
+              title={user.from || "IL"}
+              style={{ width: "100%", height: "100%" }}
+            />
+          )}
         </span>
-        <span className="futCardOverall">{user.generalMark || 0}</span>
+        <span className="futCardOverall">{user.generalMark}</span>
         <span className="futCardAge">31</span>
         <div className="futCardMathStat">
           <span>MAT</span>
-          <span>{user.matMark || 0}</span>
+          <span>{user.matMark}</span>
         </div>
         <div className="futCardLanguageStat">
           <span>LAN</span>
-          <span>{user.lanMark || 0}</span>
+          <span>{user.lanMark}</span>
         </div>
         <div className="futCardArtStat">
           <span>ART</span>
-          <span>{user.artMark || 0}</span>
+          <span>{user.artMark}</span>
         </div>
       </div>
     </div>

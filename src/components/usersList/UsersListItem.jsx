@@ -6,6 +6,21 @@ import ReactCountryFlag from "react-country-flag";
 export default function UsersListItem({ user, index }) {
   const curentsUser = localStorage.getItem("user");
   const userId = JSON.parse(curentsUser).id;
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+
+  const getUserColor = (index) => {
+    if (index === 0) {
+      return "gold";
+    } else if (index === 1) {
+      return "silver";
+    } else if (index === 2) {
+      return "bronze";
+    } else {
+      return "";
+    }
+  };
+
+  const userColor = getUserColor(index);
 
   return (
     <Link
@@ -13,11 +28,13 @@ export default function UsersListItem({ user, index }) {
       to={`/profile/${user.username}`}
     >
       <li
-        className={`usersListItem ${user._id === userId ? "highlighted" : ""}`}
+        className={`usersListItem ${
+          user._id === userId ? "highlighted" : ""
+        } ${userColor}`}
       >
         <div className="userRank">{index + 1}</div>
         <img
-          src={user.profilePicture || "assets/person/noAvatar.png"}
+          src={user.profilePicture || PF + "/assets/person/noAvatar.png"}
           alt="profilePic"
           className="userImage"
         />

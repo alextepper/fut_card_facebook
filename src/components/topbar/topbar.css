@@ -1,3 +1,7 @@
+body {
+    overflow: scroll;
+}
+
 .topbarContainer {
     height: 50px;
     width: 100%;
@@ -113,4 +117,18 @@
     cursor: pointer;
     background-color: white;
     margin: 15px;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #e4e4e4;
+    border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #d4aa70;
+    border-radius: 100px;
 }
