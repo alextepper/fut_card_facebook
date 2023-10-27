@@ -3,6 +3,7 @@ import "./futCard.css";
 import axios from "axios";
 import FlagSelector from "../flagSelector/FlagSelector";
 import ReactCountryFlag from "react-country-flag";
+import Dialog from "../dialog/Dialog";
 
 export default function FutCard({ user }) {
   const [file, setFile] = useState(null);
@@ -10,6 +11,18 @@ export default function FutCard({ user }) {
   const currentUser = localStorage.getItem("user");
   const currentUserId = JSON.parse(currentUser).id;
   const isUserAuthed = user._id === currentUserId;
+  const [showDialog, setShowDialog] = useState(false);
+
+  const showProfilePicDialog = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    setShowDialog(true);
+  };
+
+  const onDialogConfirm = () => {
+    setShowDialog(false);
+    fileInput.current.click();
+  };
 
   const getShieldLevel = (generalScore) => {
     if (generalScore > 90) {
@@ -54,8 +67,6 @@ export default function FutCard({ user }) {
   };
 
   const handleFileChange = (e) => {
-    console.log(user);
-    console.log(currentUser);
     if (isUserAuthed) {
       setFile(e.target.files[0]);
       uploadImage(user);
@@ -71,7 +82,7 @@ export default function FutCard({ user }) {
           backgroundSize: "cover",
         }}
       >
-        <label htmlFor="file">
+        <div className="imageWrapper">
           <img
             src={
               (file && URL.createObjectURL(file)) ||
@@ -80,7 +91,17 @@ export default function FutCard({ user }) {
             }
             alt="profilePic"
             className={`futCardProfilePic ${isUserAuthed && "cursor"}`}
+            onClick={isUserAuthed ? (e) => showProfilePicDialog(e) : null}
           />
+
+          {showDialog && (
+            <Dialog
+              message="Please upload the picture of person or pet, for correct work of our algorithm."
+              onConfirm={onDialogConfirm}
+              onCancel={() => setShowDialog(false)}
+            />
+          )}
+
           {isUserAuthed && (
             <input
               ref={fileInput}
@@ -91,7 +112,7 @@ export default function FutCard({ user }) {
               onChange={handleFileChange}
             />
           )}
-        </label>
+        </div>
 
         <span className="futCardUsername">{user.username}</span>
         <span className="futCardOrigin">
@@ -107,7 +128,7 @@ export default function FutCard({ user }) {
           )}
         </span>
         <span className="futCardOverall">{user.generalMark}</span>
-        <span className="futCardAge">31</span>
+        {/* <span className="futCardAge">31</span> */}
         <div className="futCardMathStat">
           <span>MAT</span>
           <span>{user.matMark}</span>

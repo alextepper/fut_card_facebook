@@ -1,6 +1,6 @@
 /* QuizStyles.css */
 .testWrapper {
-    padding-top: 20px;
+    padding: 20px 5px 0 5px;
     max-width: 600px;
     width: 100vw;
     margin: 0 auto;
@@ -97,7 +97,7 @@ input[type="radio"] {
     content: '»';
     position: absolute;
     opacity: 0;
-    top: 14px;
+    bottom: 32%;
     right: -20px;
     transition: 0.5s;
 }

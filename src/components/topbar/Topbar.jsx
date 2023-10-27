@@ -1,19 +1,30 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./topbar.css";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import Dialog from "../dialog/Dialog";
 
 export default function Topbar() {
   const { user } = useContext(AuthContext);
+  const [showDialog, setShowDialog] = useState(false);
+  const navigate = useNavigate();
 
-  const logoutHandler = () => {
+  const handleLogout = () => {
     try {
       localStorage.removeItem("user");
       window.location.reload(false);
     } catch (err) {
       console.log(err);
     }
+  };
+
+  const handleLogoutClick = () => {
+    setShowDialog(true);
+  };
+
+  const navigateTests = () => {
+    navigate("/test-question");
   };
 
   if (user) {
@@ -26,12 +37,9 @@ export default function Topbar() {
         </div>
         <div className="topbarRight">
           <div className="topbarLinks">
-            <Link
-              to={"/test-question"}
-              style={{ textDecoration: "none", color: "white" }}
-            >
-              Test Yourself
-            </Link>
+            <button className="topbarButton testButton" onClick={navigateTests}>
+              Tests
+            </button>
           </div>
 
           <Link to={`/profile/${user.username}`}>
@@ -42,7 +50,18 @@ export default function Topbar() {
             />
           </Link>
           <div className="topbarIconItem">
-            <LogoutIcon onClick={logoutHandler} />
+            <LogoutIcon onClick={handleLogoutClick} />
+
+            {showDialog && (
+              <Dialog
+                message="Are you sure you want to logout?"
+                onConfirm={() => {
+                  handleLogout();
+                  setShowDialog(false);
+                }}
+                onCancel={() => setShowDialog(false)}
+              />
+            )}
           </div>
         </div>
       </div>

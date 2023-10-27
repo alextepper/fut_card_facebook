@@ -32,7 +32,7 @@ export default function Post({ post }) {
     };
 
     fetchUser();
-  }, []);
+  }, post.userId);
 
   const likeHandler = () => {
     try {

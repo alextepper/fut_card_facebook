@@ -1,9 +1,3 @@
-body,
-html {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif
-}
-
 .loginBody {
     background: linear-gradient(163deg, rgb(109, 214, 218) 0%, rgba(79, 146, 196, 1) 29%, rgba(234, 163, 182, 1) 70%, rgba(187, 245, 237, 1) 98%);
 

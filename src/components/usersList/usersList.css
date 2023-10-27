@@ -78,11 +78,17 @@
     margin: 0 10px;
 }
 
+.userName {
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
 .listFlag {
-    margin-left: 2px;
+    margin-left: 5px;
     border-radius: 50%;
 }
 
 .userGeneralMark {
     font-size: 1.2em;
+    font-weight: 500;
 }

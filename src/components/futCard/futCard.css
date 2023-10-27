@@ -33,10 +33,12 @@
 .futCardOrigin {
     position: absolute;
     left: 20%;
-    top: 30.5%;
+    top: 31.3%;
     z-index: 100;
-    width: 64px;
-    height: 60px;
+    width: 12.8%;
+    height: 7%;
+    box-shadow: 0px 10px 15px 10px rgb(0 0 0 / 15%);
+
 }
 
 .futCardAge {
@@ -73,19 +75,15 @@
 
 .futCardOverall {
     position: absolute;
-    left: 19%;
-    top: 16%;
+    left: 18%;
+    top: 18%;
     font-size: 72px;
+    font-weight: 900;
     color: #fff;
 }
 
 /* Media Queries for smaller screens */
 @media (max-width: 556px) {
-
-    .futCardOrigin {
-        width: 12vw;
-        height: 11vw;
-    }
 
 
     .futCardUsername {

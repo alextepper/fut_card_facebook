@@ -1,7 +1,5 @@
-// CustomAlert.js
-
 import React from "react";
-import "./CustomAlert.css";
+import "./dialog.css";
 
 const Dialog = ({ message, onConfirm, onCancel }) => {
   return (
@@ -9,8 +7,12 @@ const Dialog = ({ message, onConfirm, onCancel }) => {
       <div className="custom-alert">
         <p>{message}</p>
         <div className="alert-buttons">
-          <button onClick={onConfirm}>Confirm</button>
-          <button onClick={onCancel}>Cancel</button>
+          <button className="alertButton" onClick={onConfirm}>
+            Confirm
+          </button>
+          <button className="alertButton cancelButton" onClick={onCancel}>
+            Cancel
+          </button>
         </div>
       </div>
     </div>

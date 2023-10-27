@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    font-family: 'Onest', sans-serif;
+}
+
 body {
     overflow: scroll;
 }
@@ -29,14 +34,15 @@ body {
 
 .whiteLogo {
     font-size: 24px;
+    font-weight: 900;
     margin-left: 20px;
     color: rgba(79, 146, 196, 1);
 }
 
 .logo {
     font-size: 24px;
+    font-weight: 900;
     margin-left: 20px;
-    font-weight: 500;
     color: rgb(255, 255, 255);
 }
 
@@ -105,8 +111,12 @@ body {
 
 .topbarLink {
     margin-right: 10px;
-    font-size: 14px;
     cursor: pointer;
+}
+
+.topbarLinks a {
+    font-size: 15px;
+    font-weight: 100;
 }
 
 .topbarImg {
@@ -131,4 +141,29 @@ body {
 ::-webkit-scrollbar-thumb {
     background-color: #d4aa70;
     border-radius: 100px;
+}
+
+.topbarLinks .testButton {
+    border-radius: 4px;
+    background-color: #ffffff;
+    border: none;
+    color: #5353f7;
+    text-align: center;
+    font-size: 16px;
+    padding: 2px;
+    width: 100vw;
+    max-width: 100px;
+    transition: all 0.5s;
+    margin: 0;
+    cursor: pointer;
+    box-shadow: 0 10px 20px -8px rgba(0, 0, 0, .7);
+}
+
+.topbarLinks .testButton:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    bottom: 10%;
+    right: -20px;
+    transition: 0.5s;
 }
