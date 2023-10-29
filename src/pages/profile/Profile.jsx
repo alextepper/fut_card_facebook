@@ -5,6 +5,7 @@ import axios from "axios";
 import { useParams } from "react-router";
 import FutCard from "../../components/futCard/FutCard";
 import Footer from "../../components/footer/Footer";
+import QuizTryList from "../../components/quizTryList/QuizTryList";
 
 export default function Profile() {
   const [user, setUser] = useState({});
@@ -30,6 +31,7 @@ export default function Profile() {
         <div className="profile">
           <FutCard user={user} />
         </div>
+        <QuizTryList userId={user._id} />
       </div>
 
       <Footer />

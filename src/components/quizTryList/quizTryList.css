@@ -1,0 +1,153 @@
+.quiz-tries-list {
+    margin: 20px auto;
+    width: 90%;
+    max-width: 600px;
+}
+
+.try-item {
+    align-items: center;
+    justify-content: flex-start;
+    padding: 5px 10px;
+    border-radius: 10px;
+    box-shadow: 1px 0px 21px 0px rgba(0, 0, 0, 0.47);
+    -webkit-box-shadow: 1px 0px 21px 0px rgba(0, 0, 0, 0.47);
+    -moz-box-shadow: 1px 0px 21px 0px rgba(0, 0, 0, 0.47);
+    margin: 10px 0;
+    transition: all 0.3s;
+    /* Animation for smooth color transition */
+
+}
+
+.try-item:hover {
+    background-color: #9e96c8;
+    transform: scale(1.02);
+    /* Change this to your desired hover color */
+}
+
+
+
+.try-item-header {
+    display: flex;
+    align-items: center;
+}
+
+.try-item-content {
+    margin-left: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.subjectTitle {
+    flex: 5;
+    font-size: 1.5em;
+    justify-content: center;
+}
+
+.markDiv {
+    font-size: 2em;
+    background-color: rgb(11, 85, 188);
+    border-radius: 10px;
+    color: white;
+    padding: 5px;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+}
+
+.try-item-footer {
+    display: flex;
+    justify-content: center;
+}
+
+
+.try-item .progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 7px;
+    height: 10px;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    margin: 10px 0;
+}
+
+.try-item .progress {
+    background-color: #5272b8;
+    /* Feel free to change the color */
+    height: 100%;
+    line-height: 20px;
+    /* same as .progress-bar height, to center the text */
+    text-align: center;
+    white-space: nowrap;
+    color: white;
+    transition: width 0.4s ease-in-out;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-icon {
+    border: 5px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 5px solid #3498db;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 10px auto;
+}
+
+.answers-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+}
+
+.answers-container.active {
+    max-height: 1000px;
+    /* This is a high value; you can adjust this based on the expected max content size. */
+}
+
+/* Answer */
+.detailed-answer {
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+}
+
+.question-text {
+    font-size: 16px;
+    font-weight: 100;
+    margin-bottom: 10px;
+}
+
+.difficulty-level {
+    font-weight: 100;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+
+.provided-answer {
+    font-size: 14px;
+}
+
+.provided-answer.correct {
+    color: green;
+}
+
+.provided-answer.incorrect {
+    color: red;
+}
+
+.correct-answer {
+    color: #333;
+}

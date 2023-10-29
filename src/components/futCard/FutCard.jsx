@@ -78,7 +78,7 @@ export default function FutCard({ user }) {
       <div
         className="futCardTemplate"
         style={{
-          backgroundImage: `url(/assets/cards/${shieldLevel}.png)`,
+          backgroundImage: `url(/assets/cards/${shieldLevel || "green"}.png)`,
           backgroundSize: "cover",
         }}
       >
